@@ -1,0 +1,30 @@
+.main{
+  border: 1px solid gray;
+  color:gray;
+  
+  padding-bottom: 2000px;
+    
+}
+
+.blue{
+  background: blue;
+  padding: 5px;
+}
+
+.red{
+  background: red;
+}
+
+.yellow{
+  background: yellow;
+  position: static;
+  top:30px;
+}
+
+.green{
+  background: green;
+  position: relative;
+  top:20px;
+  left:40px;
+  padding: 10px;
+}
