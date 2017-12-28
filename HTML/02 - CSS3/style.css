@@ -9,10 +9,17 @@
 .blue{
   background: blue;
   padding: 5px;
+  position: absolute;
+  top:50px;
+  left: 50px;
 }
 
 .red{
   background: red;
+}
+
+.pink{
+  background: pink;
 }
 
 .yellow{
@@ -23,8 +30,8 @@
 
 .green{
   background: green;
-  position: relative;
+  position: absolute;
   top:20px;
-  left:40px;
+  left:20px;
   padding: 10px;
 }
