@@ -12,8 +12,8 @@
     <main>
       <nav>
         <div class='title navs'>My Big Title</div>
-        <div class="hamburger navs">
-          <i class="material-icons">menu</i>
+        <div class="navs">
+          <i class="material-icons" id='hamburger'>menu</i>
         </div>
       </nav> 
     </main>
@@ -33,9 +33,17 @@
     margin-bottom: 10px;
   }
 
-  .hamburger{
+  #hamburger{
     float: right;
     height: auto;
+    font-size: 48px;
+    color: white;
+  }
+
+  @media (min-width:480px){
+    #hamburger{
+      display: none;
+    }
   }
 
 
