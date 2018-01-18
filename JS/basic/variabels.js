@@ -1,16 +1,24 @@
 var ready = function(){
+  //use console log to write to console
   console.log('ready to run js');
   
+  //variables
   var x= 'test';
   console.log('this is x: ',x);
+  
+  //in js variables can shift types
   x=34;
   console.log('this is x: ',x);
+  
+  //object
   x={'one':1,'two':2};
   console.log('this is x: ',x);
   var y = x;
   console.log('this is y: ',y);
   x=56;
   console.log('this is y: ',y);
+  
+  //Objects and Arrays
   
   var myArray = [];
   var myObj = {};
