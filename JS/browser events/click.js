@@ -1,4 +1,5 @@
 document.getElementById('firstButton').addEventListener('click',function(e){
+  //Good list of events can be seen here: https://developer.mozilla.org/en-US/docs/Web/Events
   console.dir(e)
 })
 
@@ -10,23 +11,32 @@ function changeMyColor(){
 
 function rotate(){  
   
-  var rotateNumber = rotateText('secondButton',45);  
-  document.getElementById('secondButton').style.transform = 'rotate('+rotateNumber+'deg)';
+  var rotateAngle = rotateText('secondButton',45);  
+  document.getElementById('secondButton').style.transform = 'rotate('+rotateAngle+'deg)';
   
 }
 
 function rotateText(buttonID, rotateBy){
   
-  var rotateText = document.getElementById(buttonID).style.transform;
-  var rotateEndOfNumber = rotateText.search('deg');  
-  var rotateNumberString = rotateText.substr(7,rotateEndOfNumber-7);  
-  var rotateNumber = parseInt(rotateNumberString);
+  //extract rotation angle
+  var currentTextRotation = document.getElementById(buttonID).style.transform;  
+  var rotateEndOfNumber = currentTextRotation.search('deg');  
+  var rotateAngleString = currentTextRotation.substr(7,rotateEndOfNumber-7);  
+  var rotateAngle = parseInt(rotateAngleString);
   
-  if(!rotateNumber){
-    rotateNumber = 0;
+  //check that angle is valid, and correct if invalid
+  
+  if(!rotateAngle || rotateAngle >= 360){
+    
+    if (rotateAngle>=360){
+      rotateAngle = rotateAngle-360;
+    } else{
+      rotateAngle = 0;
+    }    
   };
   
-  rotateNumber += rotateBy;
+  //new rotation angle
+  rotateAngle += rotateBy;
   
-  return rotateNumber;
+  return rotateAngle;
 }
