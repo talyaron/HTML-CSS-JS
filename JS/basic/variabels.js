@@ -1,17 +1,22 @@
+var t = '45';
+console.log('this is t: ',t);
+
+
 var ready = function(){
   //use console log to write to console
   console.log('ready to run js');
   
   //variables
   var x= 'test';
-  console.log('this is x: ',x);
+
+
   
   //in js variables can shift types
   x=34;
   console.log('this is x: ',x);
   
   //object
-  x={'one':1,'two':2};
+  x={'one':1,'two':{name:"Shlomi", age:23}};
   console.log('this is x: ',x);
   var y = x;
   console.log('this is y: ',y);
@@ -37,4 +42,6 @@ var ready = function(){
   console.log(myArray);
   
   var t=3,j="y";
+
+
 }
