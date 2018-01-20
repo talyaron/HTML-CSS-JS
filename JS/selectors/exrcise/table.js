@@ -5,4 +5,3 @@ var tableContentArr = [
 
 tableContentArr.push({name: 'Amit', last:'Zilber', city: 'Pardes-Hana'})
 
-
