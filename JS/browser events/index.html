@@ -8,13 +8,23 @@
   </head>
 
   <body>
-    <div class="largeButton" id='firstButton'>
-      Click Me :-)
-    </div>
+    <main>
+      <div class="buttons">
+      <div class="largeButton" id='firstButton'>
+        Click Me :-)
+      </div>
 
-    <div class="largeButton" id='secondButton' onclick="changeMyColor()" ondblclick="rotate()">Change My Color</div>
-    
-    <!--  good source for events can be found at: https://www.w3schools.com/jsref/dom_obj_event.asp -->
+      <div class="largeButton" id='secondButton' onclick="changeMyColor()" ondblclick="rotate()">Change My Color</div><br>
+        
+      </div>
+
+      <!--  good source for events can be found at: https://www.w3schools.com/jsref/dom_obj_event.asp -->
+      <form>
+        <input type='text' class="inputText" id='inputName' placeholder="Enter some text" autofocus><br>
+        <input type='button' value='OK' class="buttonOK" id='inputNameSubmit'>
+      </form><br>
+      <div id='output'></div>
+    </main>
 
   </body>
 </html>
