@@ -1,17 +1,24 @@
-document.getElementById('firstButton').addEventListener('click',function(e){
+var firstBtn = document.getElementById('firstButton');
+
+firstBtn.addEventListener('click',function(e){
   //Good list of events can be seen here: https://developer.mozilla.org/en-US/docs/Web/Events
-  console.dir(e)
-})
+  console.dir(e)  
+});
+
+firstBtn.addEventListener('dblclick', function(e){
+  console.log("dbl click")
+});
 
 function changeMyColor(){
   var button = document.getElementById('secondButton');
   var colors = ['yellow','red','blue', 'pink','black','blueviolet', 'chocolate', 'coral'];
-  button.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+  button.style.background = colors[Math.floor(Math.random() * colors.length)];
 }
 
 function rotate(){  
 
   var rotateAngle = rotateText('secondButton',45);  
+  document.getElementById('secondButton').style.transition = 'all 1s'
   document.getElementById('secondButton').style.transform = 'rotate('+rotateAngle+'deg)';
 
 }
@@ -50,6 +57,7 @@ var outputElement = document.getElementById('output');
 //input from input-text
 inputElement.addEventListener('keyup', function(e){  
 
+  
   var textInp = '';
   // if enter send to....
   if(e.keyCode === 13){
@@ -57,6 +65,7 @@ inputElement.addEventListener('keyup', function(e){
   } 
 
   //output to output-element
+    
   textInp += e.target.value; 
   outputElement.innerText = textInp; 
 

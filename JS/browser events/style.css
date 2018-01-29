@@ -47,6 +47,11 @@ form *{
   background:wheat;
 }
 
+.inputText:hover{
+  outline-width: 0;
+  background:blue;
+}
+
 .buttonOK{
   background: #2a2aff;
   padding: 7px;

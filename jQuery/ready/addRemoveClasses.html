@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ready</title>
+    <script
+            src="http://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+            crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    
+    <div id="target">Reds</div>
+    <button onclick="addReds()">Add reds</button>
+    <button onclick="removeReds()">Remove reds</button>
+  </body>
+</html>
+<script>
+  
+
+  $(document).ready(function(){
+    
+  })
+  
+  function addReds(){
+    $('#target').addClass('reds')
+  }
+  
+  function removeReds(){
+    $('#target').removeClass('reds')
+  }
+
+</script>
+<style>
+  .reds{
+    background: red;
+  }
+</style>

@@ -6,8 +6,6 @@ var tableContentArr = [
 //<div style="background: black; top:0px; width:700px">voo</div>
 
 
-
-
 function getInput(){
   var name = document.getElementsByName('name')[0].value;
   var famely = document.getElementsByName('famely')[0].value;

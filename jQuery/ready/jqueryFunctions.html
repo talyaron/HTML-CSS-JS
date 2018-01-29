@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ready</title>
+    <script
+            src="http://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <h3>Functions</h3>
+  </body>
+</html>
+<script>
+
+
+  $(document).ready(function(){
+    $.each([ "foo", "bar", "baz" ], function( index, value ) {
+      console.log( "element " + index + " is " + value );
+    });
+
+    $.each({ foo: "bar", baz: "bim" }, function( key, value ) {
+      console.log( key + " : " + value );
+    });
+
+    var firstObject = { foo: "bar", a: "b" };
+    var secondObject = { foo: "baz" };
+
+    var newObject = $.extend( firstObject, secondObject );
+
+    console.log( firstObject.foo ); 
+    console.dir( newObject ); 
+  })
+
+
+
+
+</script>
