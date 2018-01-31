@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ready</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous"></script>
+</head>
+
+<body onload="ready()">
+    <div id='firstDiv'>I am the first div</div>
+    <div class='classOfDivs'>I am from a class of divs</div>
+    <div class='classOfDivs'>I am from a class of divs</div>
+    <div class='classOfDivs'>I am from a class of divs</div>
+    <div class='classOfDivs'>I am from a class of divs</div>
+
+    <form>
+        <input type=text placeholder="Enter a name" name='name'>
+    </form>
+
+    <div class='firstBox'>
+        <ul>
+            <li>List1
+                <span>name</span>
+            </li>
+            <li>List2</li>
+        </ul>
+    </div>
+
+    <!-- <div id='firstDiv'>I am the first div</div> -->
+
+    <div>
+        <p>Paragraph of a div</p>
+    </div>
+    <div class='foo'>
+        <p>Paragraph of a div</p>
+    </div>
+
+    <form>
+        <input type=checkbox name=subscribe value='subscribe'>
+        <label for="subscribe">Subscribe to my page?</label>
+        <br>
+        <input type=checkbox name=getEmail value='subscribe'>
+        <label for="getEmail">Get email from this site?</label>
+        <br>
+        <input type=button value="OK" onclick="setValues()">
+    </form>
+
+</html>
+<script>
+    function ready() {
+        $('#firstDiv').css('color', 'blue');
+
+        $('.classOfDivs').css('color', 'red');
+
+        //Selecting Elements by Attribute
+        $('input[name = "name"]').attr('value', 'JavaScript :-)');
+
+        //Selecting Elements by Compound CSS Selector
+        $('.firstBox ul li span').css('color', 'pink');
+
+        //checking if a selection contain elements:
+        if ($('.someDiv').length) {
+            console.log('there are divs with someDiv class')
+        } else {
+            console.log('Error: can not finde divs with someDiv class')
+        }
+
+        var firstDiv = $('#firstDiv');
+        console.dir(firstDiv);
+        var classOfDivs = $('.classOfDivs');
+        console.dir(classOfDivs);
+
+        // Refining selections.
+        $("div").has("p").css('color', 'gray');         // div elements that contain <p> tags
+        $("h1").not(".bar");           // h1 elements that don't have a class of bar
+        $("div").filter(".foo").css('font-size', '30px'); // div with class 'foo'
+        $("div").first().css('border', '1px dashed gray');  // just the first div
+        $("div").eq(4).css('border', '1px dashed pink');;              // the fifth
+
+
+    }
+
+    function setValues() {
+        $("input:checkbox:not(:checked)").css('margin', '3px 3px 3px 4px')
+        $('form :checked').css('margin', '3px 3px 3px 40px');        
+        
+    }
+</script>

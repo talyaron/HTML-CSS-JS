@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ready</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1 id='header'></h1>
+    <div id=text></div>
+    <div id=addElemnts></div>
+    <div id=link></div>
+
+</html>
+<script>
+    $(document).ready(function () {
+        $('#header').text('I am a header');
+
+        var texts = ['I am a first text', 'I am a second text'];
+       
+        for (i = 0; i < texts.length; i++) {
+            var textHTML = $('<p>' + texts[i] + '</p>');
+            textHTML.appendTo($('#text'));
+        }
+        
+
+        //chaining
+        $('#text')
+            .find("p")
+            .eq(1)
+            .text("new text for the 2nd p");
+
+        //creating elements
+        $("<p>This is a new paragraph</p>").appendTo($('#addElemnts'));
+
+        $("<a/>", {
+            html: "This is a <strong>new</strong> link",
+            "class": "new",
+            href: "foo.html"
+        }).appendTo($('#link'));
+    })
+
+
+</script>

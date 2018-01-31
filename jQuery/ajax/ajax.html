@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ready</title>
+    <script
+			  src="http://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+		
+</head>
+
+<body>
+
+    <div id=test></div>
+
+
+</html>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: 'http://127.0.0.1:8124/',
+            dataType: "jsonp",
+            jsonpCallback: "_testcb",
+            cache: false,
+            timeout: 5000,
+            success: function (data) {
+                var objJSON = JSON.parse(data)
+                console.dir(objJSON);
+                $("#test").append(objJSON.message);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert('error ' + textStatus + " " + errorThrown);
+            }
+        });
+    })
+
+
+</script>
