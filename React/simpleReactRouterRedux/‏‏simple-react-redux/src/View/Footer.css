@@ -1,0 +1,11 @@
+footer{
+    width: 100%;
+    background: teal;
+    color: white;
+
+    min-height: 80px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+
+}

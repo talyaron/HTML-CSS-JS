@@ -1,1 +1,3 @@
 *.pptx
+*.ppt
+node_modules/

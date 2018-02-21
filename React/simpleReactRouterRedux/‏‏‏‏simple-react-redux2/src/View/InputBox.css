@@ -1,0 +1,11 @@
+.inputBlock{
+    border: 1px solid rgba(128, 128, 128, 0.384);
+    padding: auto;
+    flex: 1;    
+    
+}
+
+input {
+    font-size: 1.3rem;
+    padding: 5px;
+}

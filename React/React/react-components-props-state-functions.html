@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- Root div: this is where the output of react is planted -->
+    <div id="root"></div>
+
+    <!-- This is the script of react -->
+    <script type="text/babel">
+
+    // A component
+    class Message extends React.Component {
+        constructor(props){
+            super(props);
+            this.state = {clicked:0};
+            
+            // This binding is necessary to make `this` work in the callback
+            this.addClick = this.addClick.bind(this);
+        }
+
+        addClick = (e) => {
+            this.setState({clicked:this.state.clicked + 1});
+            console.log(e)
+        }
+
+        render() {
+            return (
+                <div>
+                    <h3>A message</h3>
+                    <p>Hi {this.props.name} ;-)</p>
+                    <button onClick={this.addClick}>Click</button>
+                    <p>You clicked {this.state.clicked} times</p>
+                </div>
+            );
+        }
+    }    
+
+    //A header component
+    class Header extends React.Component {
+        render() {
+            return <h1>I am the header of the components</h1>
+        }
+    }  
+    
+    //Parent Compnent
+    class Parent extends React.Component {
+        render() {
+            return (
+                <div>
+                    <Header />
+                    <Message name='Tal' />
+                </div>
+            )
+        }
+    }  
+
+    // Rendering React output to the DOM
+      ReactDOM.render(        
+        <Parent />,
+        document.getElementById('root')
+      );
+
+    </script>
+
+</body>
+
+</html>
