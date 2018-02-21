@@ -40,7 +40,7 @@
   dragElement(document.getElementById(("mydiv")));
 
   function dragElement(element) {
-    var moveX = 0, moveY = 0, oldPolitionX = 0, oldPositionY = 0;
+    var deltaMoveX = 0, deltaMoveY = 0, oldPolitionX = 0, oldPositionY = 0;
     if (document.getElementById(element.id + "header")) {
       /* if present, the header is where you move the DIV from:*/
       document.getElementById(element.id + "header").onmousedown = dragMouseDown;
@@ -50,7 +50,8 @@
     }
 
     function dragMouseDown(e) {
-      e = e || window.event;
+//      e = e || window.event;
+      
       // get the mouse cursor position at startup:
       oldPolitionX = e.clientX;
       oldPositionY = e.clientY;
@@ -62,15 +63,15 @@
     function elementDrag(e) {
       e = e || window.event;
       // calculate the new cursor position:
-      moveX = e.clientX - oldPolitionX ;
-      moveY = e.clientY - oldPositionY;
-      console.log('move by:',moveX, moveY,'old:', e.clientX,e.clientY )
+      deltaMoveX = e.clientX - oldPolitionX ;
+      deltaMoveY = e.clientY - oldPositionY;
+      console.log('move by:',deltaMoveX, deltaMoveY,'old:', e.clientX,e.clientY )
       oldPolitionX = e.clientX;
       oldPositionY = e.clientY;
       
       // set the element's new position:      
-      element.style.left = (element.offsetLeft + moveX) + "px";
-      element.style.top = (element.offsetTop + moveY) + "px";
+      element.style.left = (element.offsetLeft + deltaMoveX) + "px";
+      element.style.top = (element.offsetTop + deltaMoveY) + "px";
     }
 
     function closeDragElement() {

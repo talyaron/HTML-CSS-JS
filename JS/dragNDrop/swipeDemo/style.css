@@ -29,13 +29,15 @@ tbody{
 }
 tr{
   height: 100%;
+  
 }
 
 .options{
   
-/*  position: relative;*/
-/*  width: 200px;*/
-  height: 100%;
+  position: absolute;
+  left:20px;
+  width: 90vw;
+  height: 200px;
   
   background: red;  
   z-index: -10;
@@ -46,27 +48,27 @@ tr{
 }
 
 .messageButtoms{
-  border: 1px solid gray;
+  background: red;
+  border: 1px solid #a2a1a112;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 215px;
-  font-size: 2rem;
+  height: 100%;
+  font-size: 1.3rem;
   text-align: center;
-  padding: 10px;
+  width: 100px;
+
 }
 
 .draggable{
-  position: relative;
-  left: calc(-1* var(--optionSize));
-  width: 100%;
+  position: relative;    
+  width: 95vw;
   height: 200px;
-/*  margin-left: calc(-1* var(--optionSize));*/
-  
+
   background: #bababa;  
   box-shadow: 4px 4px 8px gray;
   font-size: 2rem;
-  padding: 10px;
+  padding-left: 10px;
  
   
 }
