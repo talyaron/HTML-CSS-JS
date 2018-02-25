@@ -36,7 +36,7 @@ header{
 
 
 
-.draggable{
+.draggable,.draggable * {
   position: relative;    
   width: 100%;
   /* height: 200px; */
@@ -51,7 +51,10 @@ header{
      -khtml-user-select: none; /* Konqueror HTML */
        -moz-user-select: none; /* Firefox */
         -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
- 
+            user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */ 
+
+  /* solve a problem with chrome-mobile touch drag */
+  -ms-touch-action: none;
+  touch-action: none;
   
 }

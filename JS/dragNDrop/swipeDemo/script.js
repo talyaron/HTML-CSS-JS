@@ -21,6 +21,7 @@ interact('.draggable').draggable({
   onmove: dragMoveListener,
   // call this function on every dragend event
   onend: function (event) {
+    console.log('onend')
     var textEl = event
       .target
       .querySelector('p');
@@ -30,7 +31,7 @@ interact('.draggable').draggable({
 });
 
 function dragMoveListener(event) {
-
+  console.dir(event)
   var target = event.target,
     // keep the dragged position in the data-x/data-y attributes
 
@@ -38,6 +39,7 @@ function dragMoveListener(event) {
     //        y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
     y = (parseFloat(target.getAttribute('data-y')) || 0);
 
+  //if moved more then 300pixels hide
   if (x > 300) {
 
     $('#' + event.target.id).velocity({
@@ -48,6 +50,7 @@ function dragMoveListener(event) {
 
   }
 
+  console.log('x:', x)
   // translate the element
   target.style.webkitTransform = target.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
 
