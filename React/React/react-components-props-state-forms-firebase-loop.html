@@ -67,13 +67,15 @@
 
             this.handleChange = this.handleChange.bind(this);
             this.handleSubmit = this.handleSubmit.bind(this);
+
+            this.DB = firebase.database().ref().child('tests/name');
         }
 
         handleChange(event) {
-            var DB = firebase.database().ref().child('tests/name');  
+               
             this.setState({value: event.target.value});
 
-            DB.update({reactName: event.target.value})
+            this.DB.update({reactName: event.target.value})
         }
 
         handleSubmit(event) {
@@ -114,6 +116,8 @@
         }
 
         componentWillMount(){
+
+            //see more at http://busypeoples.github.io/post/react-component-lifecycle/
             
             var DB = firebase.database().ref().child('tests/name');            
             var setStateFromFB = this.setStateFromFB;
