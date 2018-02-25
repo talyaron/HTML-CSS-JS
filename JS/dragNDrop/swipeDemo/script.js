@@ -15,7 +15,7 @@ interact('.draggable').draggable({
     }
   },
   // enable autoScroll
-  autoScroll: true,
+  autoScroll: false,
 
   // call this function on every dragmove event
   onmove: dragMoveListener,
@@ -40,10 +40,10 @@ function dragMoveListener(event) {
 
   if (x > 300) {
     console.log(event.target.id);
-    $('#' + event.target.id).hide(400, function () {
-       $('#' + event.target.id + 'Row *').slideUp(600);
-//      $('#' + event.target.id + "Row *").velocity({height: '0px'})
-    });
+    $('#' + event.target.id).velocity({
+      opacity: 0
+    }, {duration: 500});
+    $('#' + event.target.id + 'Row').slideUp(600);
 
   }
 
