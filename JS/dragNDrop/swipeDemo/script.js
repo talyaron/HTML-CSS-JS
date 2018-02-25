@@ -39,10 +39,11 @@ function dragMoveListener(event) {
     y = (parseFloat(target.getAttribute('data-y')) || 0);
 
   if (x > 300) {
-    console.log(event.target.id);
+
     $('#' + event.target.id).velocity({
-      opacity: 0
-    }, {duration: 500});
+      opacity: 0,
+      fontSize: '0px'
+    }, {duration: 600});
     $('#' + event.target.id + 'Row').slideUp(600);
 
   }
