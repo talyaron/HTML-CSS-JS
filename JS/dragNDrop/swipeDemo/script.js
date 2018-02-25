@@ -22,16 +22,12 @@ interact('.draggable').draggable({
   // call this function on every dragend event
   onend: function (event) {
     console.log('onend')
-    var textEl = event
-      .target
-      .querySelector('p');
 
-    textEl && (textEl.textContent = 'moved a distance of ' + (Math.sqrt(Math.pow(event.pageX - event.x0, 2) + Math.pow(event.pageY - event.y0, 2) | 0)).toFixed(2) + 'px');
   }
 });
 
 function dragMoveListener(event) {
-  console.dir(event)
+
   var target = event.target,
     // keep the dragged position in the data-x/data-y attributes
 
@@ -40,17 +36,28 @@ function dragMoveListener(event) {
     y = (parseFloat(target.getAttribute('data-y')) || 0);
 
   //if moved more then 300pixels hide
-  if (x > 300) {
 
+  if (x > 0) {
+    $('#' + event.target.id + 'Row').css('background', 'red');
+    if (x > 200) {
+      removeElement(event);
+    }
+
+  } else {
+    $('#' + event.target.id + 'Row').css('background', 'green');
+    if (x < -200) {
+      removeElement(event);
+    }
+  }
+
+  function removeElement(event) {
     $('#' + event.target.id).velocity({
       opacity: 0,
       fontSize: '0px'
     }, {duration: 600});
     $('#' + event.target.id + 'Row').slideUp(600);
-
   }
 
-  console.log('x:', x)
   // translate the element
   target.style.webkitTransform = target.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
 
