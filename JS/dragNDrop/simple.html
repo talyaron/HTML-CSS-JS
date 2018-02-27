@@ -23,8 +23,8 @@
 </html>
 <style>
   main {
-    width: 600px;
-    background: green;
+    width: 100%;
+    background: pink;
   }
 
   #drag-1,
@@ -39,13 +39,14 @@
     border-radius: 0.75em;
     padding: 4%;
 
-
+    -ms-touch-action: none;
+    touch-action: none;
   }
 
-  #drag-me::before {
+  /* #drag-me::before {
     content: "#" attr(id);
     font-weight: bold;
-  }
+  } */
 </style>
 <script>
   // target elements with the "draggable" class
