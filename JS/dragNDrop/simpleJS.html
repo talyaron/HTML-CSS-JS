@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-  </head>
 
-  <body>
-    <!--Draggable DIV:-->
-    <div id="mydiv">
-      <!--Include a header DIV with the same name as the draggable DIV, followed by "header":-->
-      <div id="mydivheader">Click here to move</div>
-      <p>Move</p>
-      <p>this</p>
-      <p>DIV</p>
-    </div> 
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+  <!--Draggable DIV:-->
+  <div id="mydiv">
+    <!--Include a header DIV with the same name as the draggable DIV, followed by "header":-->
+    <div id="mydivheader">Click here to move</div>
+    <p>Move</p>
+    <p>this</p>
+    <p>DIV</p>
+  </div>
+</body>
+
 </html>
 <style>
   #mydiv {
@@ -50,25 +52,25 @@
     }
 
     function dragMouseDown(e) {
-//      e = e || window.event;
-      
+      e = e || window.event;
+
       // get the mouse cursor position at startup:
       oldPolitionX = e.clientX;
       oldPositionY = e.clientY;
       document.onmouseup = closeDragElement;
       // call a function whenever the cursor moves:
-      document.onmousemove = elementDrag;
+      document.onmousemove = dragMoveElement;
     }
 
-    function elementDrag(e) {
+    function dragMoveElement(e) {
       e = e || window.event;
       // calculate the new cursor position:
-      deltaMoveX = e.clientX - oldPolitionX ;
+      deltaMoveX = e.clientX - oldPolitionX;
       deltaMoveY = e.clientY - oldPositionY;
-      console.log('move by:',deltaMoveX, deltaMoveY,'old:', e.clientX,e.clientY )
+
       oldPolitionX = e.clientX;
       oldPositionY = e.clientY;
-      
+
       // set the element's new position:      
       element.style.left = (element.offsetLeft + deltaMoveX) + "px";
       element.style.top = (element.offsetTop + deltaMoveY) + "px";
