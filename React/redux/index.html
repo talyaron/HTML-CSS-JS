@@ -29,7 +29,7 @@
   var valueEl = document.getElementById('value');
 
   //set the reducer to be input of the store (see later)
-  var store = Redux.createStore(counter);
+  var store = Redux.createStore(reducer);
 
   function render() {
 
@@ -38,8 +38,13 @@
 
   render();
 
+  function test() {
+    console.log('dispatch')
+  }
+
   //Adds a change listener. It will be called any time an action is dispatched, and some part of the state tree may potentially have changed
   store.subscribe(render);
+  store.subscribe(test);
 
   //actions
   document.getElementById('decrement').addEventListener('click', function () {
@@ -59,7 +64,7 @@
 
 
 
-  function counter(currentState, action) {
+  function reducer(currentState, action) {
     //Reducer
 
     var DEFAULT_STATE = { count: 110, sum: 0 };
