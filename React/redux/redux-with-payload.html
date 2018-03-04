@@ -43,14 +43,14 @@
 
   //actions
   document.getElementById('decrement').addEventListener('click', function () {
-    var action = { type: 'DECREMENT' };
+    var action = { type: 'DECREMENT', payload: -1 };
     store.dispatch(action);
   })
 
   document.getElementById('incrementAsyc').addEventListener('click', function () {
     setTimeout(
       function increment() {
-        var action = { type: 'INCREMENT_ASYNC' };
+        var action = { type: 'INCREMENT_ASYNC', payload: 1 };
         store.dispatch(action);
       },
       1000
@@ -64,7 +64,6 @@
 
     var DEFAULT_STATE = { count: 110, sum: 0 };
     var nextState = Object.assign({}, currentState);
-
     if (currentState === undefined) {
 
       nextState = DEFAULT_STATE;
@@ -73,11 +72,11 @@
 
     switch (action.type) {
       case 'DECREMENT':
-        nextState.count = currentState.count - 1;
+        nextState.count = currentState.count + action.payload;
         return nextState;
 
       case 'INCREMENT_ASYNC':
-        nextState.count = currentState.count + 1;
+        nextState.count = currentState.count + action.payload;
         return nextState;
 
       default:
