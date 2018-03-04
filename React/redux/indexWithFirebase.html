@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redux</title>
+    <script src='https://npmcdn.com/redux@latest/dist/redux.min.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+
+  </head>
+
+  <body>
+    <div>
+      <p> clicked: <span id='value'>?</span> times</p>
+      <button id=decrement>Decrese</button>
+      <button id=incrementAsyc>Increment Async</button>
+    </div>
+
+  </body>
+</html>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB5BoW4FBpRPdOfyYjPej5WkrHO9v8qtjQ",
+    authDomain: "testproj-96156.firebaseapp.com",
+    databaseURL: "https://testproj-96156.firebaseio.com",
+    projectId: "testproj-96156",
+    storageBucket: "testproj-96156.appspot.com",
+    messagingSenderId: "150276311739"
+  };
+  firebase.initializeApp(config);  
+  var DB = firebase.database().ref();
+
+  
+
+  var store = Redux.createStore(counter)
+
+  var valueEl = document.getElementById('value' );
+
+  function render(){
+
+    valueEl.innerHTML = store.getState().count;
+  }
+
+  render(); 
+
+  store.subscribe(render);
+
+
+  function counter (currentState, action){ //Reducer
+
+    var DEFAULT_STATE = {count:110, sum:0};
+    var nextState = Object.assign({}, currentState);
+    if(currentState === undefined){
+
+      nextState = DEFAULT_STATE;
+
+    }
+
+    switch(action.type){
+      case 'DECREMENT':
+        nextState.count = currentState.count - 1;        
+        return nextState;
+
+      case 'INCREMENT_ASYNC':
+        nextState.count = currentState.count + 1;        
+        return nextState;
+
+      default:
+        return nextState;
+    }
+  }
+
+  document.getElementById('decrement').addEventListener('click',function(){
+    var action = {type:'DECREMENT'};    
+    store.dispatch(action);
+  })
+var n = 0;
+  document.getElementById('incrementAsyc').addEventListener('click', function(){
+//    setTimeout(
+//      function increment(){
+//        var action = {type: 'INCREMENT_ASYNC'};
+//        store.dispatch(action);
+//      },
+//      1000
+//    )
+    n++
+    DB.child('tests').update({count:n})
+    
+  })
+  
+  var listen = DB.child('tests/count')
+
+  listen.on('value',function(dataSnap){
+    console.log(dataSnap.val());
+    var action = {type: 'INCREMENT_ASYNC'};
+      store.dispatch(action);
+  })
+
+</script>
