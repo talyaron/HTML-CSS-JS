@@ -1,30 +1,30 @@
-var ready = function(){
-//    console.log('ready for functions');
-//  
-//    writeName('Tal');
-//    writeLastName('Yaron')
-//    console.log(typeof( 'my age is: '+ calculateAge(1971,2018)+6))
-//    console.log(typeof(calculateAge(1994,2018)))
-//  
-//    console.log(calculateAge(34,2018));
-//    console.log(writeLastName);
-//  };
+var ready = function () {
+  //    console.log('ready for functions');
+  //  
+  //    writeName('Tal');
+  //    writeLastName('Yaron')
+  //    console.log(typeof( 'my age is: '+ calculateAge(1971,2018)+6))
+  //    console.log(typeof(calculateAge(1994,2018)))
+  //  
+  //    console.log(calculateAge(34,2018));
+  //    console.log(writeLastName);
+};
 
 
 
-  var writeName = function(name='Yegal'){
-    console.log('your name is: '+name);
-    
+var writeName = function (name = 'Yegal') {
+  console.log('your name is: ' + name);
 
-  }
-  
-  writeName('Sagiv');
-  
-  function multy(a,b){
-    return a*b;
-  }
-  
-  console.log(multy(2,4));
+
+}
+
+writeName('Sagiv');
+
+function multy(a, b) {
+  return a * b;
+}
+
+console.log(multy(2, 4));
 
 
 
