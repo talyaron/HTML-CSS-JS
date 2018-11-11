@@ -1,3 +1,24 @@
+
+//anonymous function and regular function
+function addition(x, y) {
+  return x + y;
+}
+
+console.log(addition(3, 7));
+
+var addition2 = function (x, y) {
+  return x + y;
+}
+
+console.log(addition2(7, 9))
+
+
+var addition3 = (x, y) => {
+  return x + y;
+}
+
+console.log(addition3(10, 20))
+
 var ready = function () {
   //    console.log('ready for functions');
   //  
@@ -41,7 +62,7 @@ console.log(multy(2, 4));
 //  zz='zzzzzzzz';
 //  console.log(zz);
 //  writeLastName();
-}
+// }
 
 //console.log('global1: ',g_x);
 //var currentYear = 2018;

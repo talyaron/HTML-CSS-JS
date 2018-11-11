@@ -1,4 +1,4 @@
-var ready = function(){
+
 
 //  for (var i=0; i<4;i++){
 //    console.log(i);
@@ -8,22 +8,22 @@ var ready = function(){
 //  for (i in arr){
 //    console.log(i,': ',arr[i]);
 //  }
-  
+
 //  var arr4 = [4,6,'tr',5];
 //  var obj = {key:45, name:'Moshe', height:180};
 //  var obj2 = {fields:[4,6,7,9,90,{bob:'bab'}]};
 //  
 //  console.log(obj2.fields[5].bob);
 
-  var obj = {
-    a:1,
-    b:2,
-    dd:null
-  }
+var obj = {
+  a: 1,
+  b: 2,
+  dd: null
+}
 //
-  for (i in obj){
-    console.log(i+':'+obj[i]);
-  }
+for (i in obj) {
+  console.log(i + ':' + obj[i]);
+}
 //
 //  i = 0;
 //
@@ -40,4 +40,4 @@ var ready = function(){
 //    console.log("The number is (do) " + i);
 //    
 //  } while (i < 4);
-}
+

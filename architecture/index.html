@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Architecture</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+</head>
+<style>
+    body {
+        background: rgb(211, 255, 237);
+        color: rgba(0, 0, 0, 0.781);
+        font-size: 1.2rem;
+        font-family: 'Karla', sans-serif;
+    }
+
+    main {
+        max-width: 550px;
+        margin: auto;
+        position: relative;
+    }
+
+    li {
+        line-height: 1.7rem;
+    }
+</style>
+
+<body>
+    <main>
+        <h1>Architecture</h1>
+        <h2>Patterns For Large-Scale JavaScript Application Architecture</h2>
+        <p><a href='https://addyosmani.com/largescalejavascript/' target="_blank">Patterns For Large-Scale
+                JavaScript Application Architecture, written by: <i>Addy Osmani</i></a></p>
+        <ul>
+            <li>Key Concerns:
+                <ul>
+                    <li>Reusability</li>
+                    <li>Single perpuse & avoidence of dependencies on other elements</li>
+                    <li>If specific parts of your application fail, can it still function?</li>
+                    <li>How easily can you test individual modules</li>
+                    <li>Decouple View from Model and from Controls - so you can change them in the future </li>
+                    <li>Use setters for the model (to prevent unsuprvised changes to the store), and have a log, to
+                        understan how changed the model </li>
+                    <li>
+                        "The secret to building large apps is never build large apps. Break your applications into
+                        small pieces. Then, assemble
+                        those testable, bite-sized pieces into your big application" -
+                        <i>Justin Meyer, author JavaScriptMVC</i>
+                    </li>
+                    <li>
+                        "The key is to acknowledge from the start that you have no idea how this will grow. When you
+                        accept that you don't know
+                        everything, you begin to design the system defensively. You identify the key areas that may
+                        change, which often is very
+                        easy when you put a little bit of time into it. For instance, you should expect that any part
+                        of the app that
+                        communicates with another system will likely change, so you need to abstract that away." -
+                        <i>Nicholas Zakas, author 'High-performance JavaScript websites'</i>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <h2>The Proposed Architecture</h2>
+
+        <p>The solution to the architecture we seek to define is a combination of three well-known design patterns: the
+            <b>module</b>,
+            <b>facade</b> and <b>mediator</b>.</p>
+        <p>Rather than the traditional model of modules directly communicating with each other, in this decoupled
+            architecture,
+            they'll instead only publish events of interest (ideally, without a knowledge of other modules in the
+            system). The
+            mediator pattern will be used to both subscribe to messages from these modules and handle what the
+            appropriate
+            response to notifications should be. The facade pattern will be used to enforce module permissions.</p>
+
+        <p>I will be going into more detail on each of these patterns below:</p>
+        <ul>
+            <li>Design patterns</li>
+            <ul>
+                <li>Module Theory</li>
+                <ul>
+                    <li><a href="#modtheory">High-level Summary</a></li>
+                    <li><a href="#modpattern">Module pattern</a></li>
+                    <li><a href="#objliteral">Object literal notation</a></li>
+                    <li><a href="#commonjsmods">CommonJS modules</a></li>
+                </ul>
+                <li><a href="#facadepattern">Facade Pattern</a></li>
+                <li><a href="#mediatorpattern">Mediator Pattern</a></li>
+            </ul>
+            <li>Applying To Your Architecture</li>
+            <ul>
+                <li><a href="#applyingfacade">The Facade - Abstraction Of The Core</a></li>
+                <li><a href="#applyingmediator">The Mediator - The Application Core</a></li>
+                <li><a href="#tyingittogether">Tying It All Together</a></li>
+            </ul>
+        </ul>
+    </main>
+</body>
+
+</html>
