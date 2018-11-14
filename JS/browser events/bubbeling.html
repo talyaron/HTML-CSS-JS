@@ -19,15 +19,15 @@
 </style>
 
 <body>
-    <div onclick="wrapperFun('Wrapper')">
+    <div onclick="clicked(event)" id='wrapper'>
         Wrapper
-        <div>
+        <div onclick="event.stopPropagation()">
             Master
-            <div onclick="fisrtFun('fisrtFun')">
+            <div onclick="clicked(event)" id='first'>
                 fisrtFun
-                <div onclick="secondFun('secondFun')">
+                <div onclick="clicked(event)" id='second'>
                     secondFun
-                    <p onclick="parFun('parFun')">parFun</p>
+                    <p id='pargraph' onclick="clicked(event)">parFun</p>
                 </div>
             </div>
         </div>
@@ -35,18 +35,11 @@
     <!-- onclick="event.stopPropagation()" -->
 </body>
 <script>
-    function wrapperFun(elm) {
-        console.log(elm)
+    function clicked(elem) {
+        console.log(elem)
+
     }
-    function fisrtFun(elm) {
-        console.log(elm)
-    }
-    function secondFun(elm) {
-        console.log(elm)
-    }
-    function parFun(elm) {
-        console.log(elm)
-    }
+
 </script>
 
 </html>
