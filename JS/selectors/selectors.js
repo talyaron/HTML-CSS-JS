@@ -42,17 +42,6 @@ for (let i = 0; i < paragraphs.length; i++) {
 var newDiv = document.createElement('div');
 newDiv.setAttribute('id', 'newDiv');
 newDiv.innerText = 'I am the new guy in the bla';
-document.body.appendChild(newDiv)
+document.body.appendChild(newDiv);
 
 
-//var reds = document.querySelectorAll('.redOnes');
-var reds = document.getElementsByClassName('redOnes');
-
-console.dir(reds)
-//
-for (j in reds) {
-
-  if (!isNaN(j)) {
-    reds[j].style.background = 'red';
-  }
-}

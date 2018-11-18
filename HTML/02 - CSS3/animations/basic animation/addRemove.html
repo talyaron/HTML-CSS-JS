@@ -4,20 +4,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  <title>Add Remove</title>
 </head>
 
 <body>
-  <div id=colors>Color</div>
+  <div id='myDiv' class='red' onclick="toggleAnimation()">Color</div>
 </body>
+<script>
+  var isActive = false;
+  var element = document.getElementById('myDiv');
+
+  function toggleAnimation() {
+    if (!isActive) {
+      element.classList.add('colors');
+      isActive = true;
+      console.log('turn on')
+    } else {
+      element.classList.remove('colors');
+      isActive = false;
+      console.log('turn off')
+    }
+  }
+</script>
 
 </html>
 <style>
-  #colors {
+  .red {
     width: 100px;
     height: 100px;
     position: relative;
     background-color: red;
+  }
+
+  .colors {
     animation-name: turnRight, colorChange;
     animation-duration: 1s;
     animation-iteration-count: infinite;
